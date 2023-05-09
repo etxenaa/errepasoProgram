@@ -10,9 +10,9 @@ public class erabiltzaileaSerializable {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		erabiltzailea e1 = new erabiltzailea("111111111A", "Lucas", "Lucas123", 1);
-		erabiltzailea e2 = new erabiltzailea("111111111B", "Mario", "MarioBros", 1);
-		erabiltzailea e3 = new erabiltzailea("111111111C", "Pepe", "PepeCalcetin", 2);
+		erabiltzailea e1 = new erabiltzailea("11111111A", "Lucas", "Lucas123", 0);
+		erabiltzailea e2 = new erabiltzailea("11111111B", "Mario", "MarioBros", 1);
+		erabiltzailea e3 = new erabiltzailea("11111111C", "Pepe", "PepeCalcetin", 2);
 		
 		try {
 			FileOutputStream fos = new FileOutputStream("users.dat");

@@ -57,6 +57,7 @@ public class erabiltzailea extends pertsona implements Serializable{
 		System.out.println("DNI: "+this.dni);
 		System.out.println("Izena: "+this.izena);
 		System.out.println("Pasahitza: "+this.pasahitza);
+		System.out.println("Mota: "+this.mota);
 		System.out.println("");
 		
 	}
@@ -66,6 +67,13 @@ public class erabiltzailea extends pertsona implements Serializable{
 		System.out.println("Sartu mota: ");
 		this.mota=sc.nextInt();
 		System.out.println("");
+	}
+	
+	public void irakurrilogin(Scanner sc) {
+		System.out.println("Sartu zure DNI: ");
+		this.dni=sc.next();
+		System.out.println("Sartu pasahitza");
+		this.pasahitza=sc.next();
 	}
 
 }

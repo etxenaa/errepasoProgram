@@ -1,8 +1,9 @@
 package hotelak;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class pertsona {
+public abstract class pertsona implements Serializable {
 	protected String dni;
 	protected String izena;
 	protected String pasahitza;

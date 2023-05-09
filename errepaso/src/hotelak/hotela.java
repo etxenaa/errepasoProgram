@@ -95,15 +95,15 @@ public class hotela {
     }
 
     public void pantailaratuHotelak() {
+    	System.out.println("/////////////// ");
         System.out.println("Id: " + this.id);
         System.out.println("Izena: " + this.izena);
         System.out.println("Hiria: " + this.hiria);
         System.out.println("Nan: " + this.nan_zuzendaria);
+        System.out.println("/////////////// ");
     }
 
     public void irakurri(Scanner sc) {
-        System.out.println("Sartu id-a");
-        this.id = sc.nextInt();
         System.out.println("Sartu hotelaren izena");
         this.izena = sc.next();
         System.out.println("Sartu hiria");
