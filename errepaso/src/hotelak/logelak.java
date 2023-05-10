@@ -106,17 +106,17 @@ public class logelak {
     }
 
     public void pantailaratu() {
+        System.out.println("///////////////");
         System.out.println("Logelarern Id: " + this.id);
         System.out.println("Izena: " + this.izena);
         System.out.println("Zerbitzuak: " + this.zerbitzuak);
         System.out.println("Hotelaren id: " + this.id_hotel);
         System.out.println("Okupatuta: " + this.okupatuta);
+        System.out.println("///////////////");
 
     }
 
     public void irakurri(Scanner sc) {
-        System.out.println("Sartu logelaren id-a");
-        this.id = sc.nextInt();
         System.out.println("Sartu logelaren izena");
         this.izena = sc.next();
         System.out.println("Sartu zerbitzuak");
