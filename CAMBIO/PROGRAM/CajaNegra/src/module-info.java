@@ -1,0 +1,3 @@
+module CajaNegra {
+	exports CajaNegra;
+}
