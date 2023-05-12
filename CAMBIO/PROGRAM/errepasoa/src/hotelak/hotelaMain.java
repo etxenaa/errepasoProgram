@@ -768,7 +768,7 @@ public class hotelaMain {
 					conexion.close();
 				} catch (SQLException e) {
 					System.out.println(e.getMessage());
-					System.out.println("Error de conexion hegaldia");
+					System.out.println("Error de conexion hegaldiasss");
 				}
 			}
 
