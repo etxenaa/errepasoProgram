@@ -24,13 +24,13 @@ public class hotelaMain {
 		erabiltzailea e1 = new erabiltzailea();
 
 		String dniLogin, pasahitzaLogin, izenagorde = "", izenaH, izenBerria, hiriBerria, nanBerria, eraldatu,
-				pasahitzBerria, zerbitzuBerria, berrirosaiatu, aukera2, nana = null;
-		int aukera = 0, konta = 3, idhotel, motaBerria, idlogela, idHotel = 0, pos = 0, erreserbaegin = 0;
+				pasahitzBerria, zerbitzuBerria, berrirosaiatu, aukera2, nana = null, dnicliente, dni_zuzendaria;
 		boolean reservaencontrada = false, reservahecha = false, salir = false, salirr = true, hotelencontrado = false,
 				pasahitzaencontrado = false, hotelañadido = false, encontrado = false, entrar = false, erarepe = false,
 				erabiltzaileencontrado = false, logelaencontrado = false, nanencontrado = false, logelaañadido = false,
-				existe = false, existereserva = false, okupatuta = false;
-		int kont = 0, motagorde = 0, erreserbaberria, ida = 0;
+				existe = false, existereserva = false, okupatuta = false, clienteencontrado = false;
+		int kont = 0, motagorde = 0, erreserbaberria, ida = 0, aukera = 0, konta = 3, idhotel, motaBerria, idlogela,
+				idHotel = 0, pos = 0, posi = 0, erreserbaegin = 0;
 
 		ArrayList<hotela> hList = new ArrayList<hotela>();
 		ArrayList<logelak> lList = new ArrayList<logelak>();
@@ -162,6 +162,21 @@ public class hotelaMain {
 						hotela hBerria = new hotela();
 						hBerria.setId(hList.get(hList.size() - 1).getId() + 1);
 						hBerria.irakurri(sc);
+						do {
+							System.out.println("Sartu zuzendariaren nan-a");
+							dni_zuzendaria = sc.next();
+
+							if (dni_zuzendaria.length() != 9) {
+								System.out.println("NAN zenbakiak 9 karaktere soili izan ahal ditu");
+								System.out.println("Saiatu berriro");
+							}
+							else {
+								encontrado=true;
+							}
+						} while (dni_zuzendaria.length() != 9);
+						
+						
+						
 						hList.add(hBerria);
 						hotelañadido = true;
 						break;
@@ -185,20 +200,10 @@ public class hotelaMain {
 									System.out.println("Zein izen jarri nahi diozu? ");
 									izenBerria = sc.next();
 									hList.get(k).setIzena(izenBerria);
-									System.out.println("Zein hiri jarri nahi diozu? ");
+									System.out.println("" + "Zein hiri jarri nahi diozu? ");
 									hiriBerria = sc.next();
 									hList.get(k).setHiria(hiriBerria);
-									do {
-										System.out.println("Zein nan jarri nahi diozu? ");
-										nanBerria = sc.next();
-										hList.get(k).setHiria(hiriBerria);
-										if (nanBerria.length() != 9) {
-											System.out.println("9 karaketere soilik izan ahal ditu ");
-										} else {
-											hotelencontrado = true;
-										}
 
-									} while (nanBerria.length() != 9);
 								}
 							}
 						}
@@ -363,7 +368,7 @@ public class hotelaMain {
 
 						logelak lBerria = new logelak();
 						if (lList.size() == 0) {
-							lBerria.setId(1);
+							lBerria.setId(10);
 						} else {
 
 							lBerria.setId(lList.get(lList.size() - 1).getId() + 1);
@@ -464,14 +469,13 @@ public class hotelaMain {
 											aukera2 = sc.next();
 											if (aukera2.equalsIgnoreCase("ez")) {
 												logelaencontrado = true;
-											}
-											else {
-												logelaencontrado=false;
+											} else {
+												logelaencontrado = false;
 											}
 										}
 									}
 								}
-							} else if(!logelaencontrado){
+							} else if (!logelaencontrado) {
 								System.out.println("Logela hori ez da existitzen");
 								System.out.println("Berriro saiatu? Bai/Ez");
 								aukera2 = sc.next();
@@ -505,51 +509,55 @@ public class hotelaMain {
 						System.out.println("1-Erreserba egin ");
 						System.out.println("/////////////// ");
 
+						salir = false;
+
 						while (!salir) {
-							reservaencontrada = false;
-							System.out.println("Zein logela erreserba nahi duzu? Sartu logelaren id-a");
+							existe = false;
+							clienteencontrado = false;
+
+							System.out.println("Zein logela erreserbatu nahi duzu? Sartu logelaren id-a");
 							erreserbaberria = sc.nextInt();
+
 							for (int l = 0; l < lList.size(); l++) {
-								if (lList.get(l).getId() == erreserbaberria) {
-									reservaencontrada = true;
-									ida = lList.get(l).getId();
-									l = pos;
-
+								if (erreserbaberria == lList.get(l).getId()) {
+									existe = true;
+									pos = l;
 								}
-
 							}
-							if (!reservaencontrada) {
+							if (!existe) {
 								System.out.println("Logela hori ez da existitzen");
-								System.out.println("Berriro saiatu nahi duzu? Bai/Ez");
-								aukera2 = sc.next();
-								if (aukera2.equalsIgnoreCase("ez")) {
+								salir = true;
+							} else {
+								if (lList.get(pos).getOkupatuta() == 1) {
+									System.out.println("Logela hori erreserbatuta dago");
 									salir = true;
-									salirr = true;
-								}
-							} else if (!salir && reservaencontrada) {
-								for (int e = 0; e < eList.size(); e++) {
-									if (eList.get(e).getId_logela() != ida) {
-										erreserbak berria = new erreserbak();
-										berria.setId_logela(erreserbaberria);
-										if (eList.size() == 0) {
-											berria.setId_erreserba(0);
-										} else {
-											berria.setId_erreserba(eList.get(eList.size() - 1).getId_erreserba() + 1);
-										}
-										berria.setDni_cliente(dniLogin);
-										eList.add(berria);
-										System.out.println("Erreserba egin da");
-										reservahecha = true;
-										salir = true;
-										
-									} else if (eList.get(e).getId_logela() == ida && !salir) {
-										System.out.println("Logela hori erreserbatuta dago");
-										System.out.println("Berriro saiatu nahi duzu? Bai/Ez");
-										aukera2 = sc.next();
-										if (aukera2.equalsIgnoreCase("ez")) {
-											salir = true;
+								} else {
+									erreserbak berria = new erreserbak();
+									if (eList.size() == 0) {
+										berria.setId_erreserba(1);
+									} else {
+										berria.setId_erreserba(eList.get(eList.size() - 1).getId_logela() + 1);
+									}
+									berria.setId_logela(erreserbaberria);
+									System.out.println("Sartu bezeroaren dni-a");
+									dnicliente = sc.next();
+									for (int b = 0; b < bList.size(); b++) {
+										if (dnicliente.equalsIgnoreCase(bList.get(b).getDni())) {
+											clienteencontrado = true;
 										}
 									}
+									if (clienteencontrado) {
+										berria.setDni_cliente(dnicliente);
+									} else {
+										System.out.println("Bezero baten dni-a sartu behar duzu");
+										salir = true;
+									}
+									eList.add(berria);
+									lList.get(pos).setOkupatuta(1);
+									System.out.println("Erreserba ondo egin da");
+									reservahecha = true;
+									logelaañadido = true;
+									salir = true;
 								}
 							}
 
@@ -569,51 +577,34 @@ public class hotelaMain {
 						System.out.println("3-Erreserba ezabatu ");
 						System.out.println("/////////////// ");
 
-						existe = false;
-						reservaencontrada = false;
-						salir=false;
-						
+						salir = false;
+
 						while (!salir) {
+
+							existe = false;
+							logelaencontrado = false;
+							reservaencontrada = false;
+
 							System.out.println("Zein erreserba ezabatu nahi duzu? Sartu logelaren id-a");
 							erreserbaberria = sc.nextInt();
-
-							for (int l = 0; l < lList.size(); l++) {
-								if (erreserbaberria == lList.get(l).getId()) {
-									existe = true;
+							for (int e = 0; e < eList.size(); e++) {
+								if (erreserbaberria == eList.get(e).getId_logela()) {
+									reservaencontrada = true;
+									eList.remove(e);
 								}
 							}
-
-							if (existe) {
-								for (int e = 0; e < eList.size(); e++) {
-									if (erreserbaberria == eList.get(e).getId_logela()) {
-										reservaencontrada = true;
-										salir = true;
-										eList.remove(e);
+							if (reservaencontrada) {
+								for (int l = 0; l < lList.size(); l++) {
+									if (erreserbaberria == lList.get(l).getId()) {
+										lList.get(l).setOkupatuta(0);
 										System.out.println("Erreserba ezabatu da");
-									}
-								}
-								if (!reservaencontrada) {
-									System.out.println("Logela hori ez dago erreserbatuta");
-									System.out.println("Berriro saiatu? Baio / Ez");
-									aukera2 = sc.next();
-									if (aukera2.equalsIgnoreCase("ez")) {
 										salir = true;
+										reservahecha = true;
+										logelaañadido = true;
 									}
 								}
 							} else {
-								System.out.println("Logela hori ez da exititzen");	
-								do {
-									
-									System.out.println("Berriro saiatu? Baio / Ez");
-									aukera2 = sc.next();
-									if (aukera2.equalsIgnoreCase("ez")) {
-										salir = true;
-									} else if (aukera2.equalsIgnoreCase("bai")) {
-										salir = false;
-									} else if (!aukera2.equalsIgnoreCase("bai") || !aukera2.equalsIgnoreCase("ez")) {
-										System.out.println("Soilik Bai / Ez izan ahal da");
-									}
-								} while (!aukera2.equalsIgnoreCase("bai") && !aukera2.equalsIgnoreCase("ez"));
+								salir = true;
 							}
 						}
 						break;
@@ -668,7 +659,7 @@ public class hotelaMain {
 					conexion.close();
 				} catch (SQLException e) {
 					System.out.println(e.getMessage());
-					System.out.println("Error de conexion hegaldia");
+					System.out.println("Error de conexion hotelak");
 				}
 			}
 
@@ -717,11 +708,11 @@ public class hotelaMain {
 						zerbitzuak = lList.get(i).getZerbitzuak();
 						id_hotel = lList.get(i).getId_hotel();
 						okupatua = lList.get(i).getOkupatuta();
-						
+
 						// genero la consulta a ejecutar
-						
+
 						consulta = "INSERT INTO logelak VALUES (" + id + ",'" + izena + "','" + zerbitzuak + "',"
-						+ id_hotel + "," + okupatua + ")";
+								+ id_hotel + "," + okupatua + ")";
 						// ejecuto la consulta
 						st.executeUpdate(consulta);
 					}
@@ -735,7 +726,8 @@ public class hotelaMain {
 					System.out.println(e.getMessage());
 					System.out.println("Error de conexion logela");
 				}
-			} else if (reservahecha) {
+			}
+			if (reservahecha) {
 				try {
 					Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/hotelak", "root", "");
 					String consulta = "";
@@ -755,8 +747,9 @@ public class hotelaMain {
 						dni_cliente = eList.get(i).getDni_cliente();
 
 						// genero la consulta a ejecutar
-						consulta = "INSERT INTO erreserbak VALUES (" + id_reserva + "," + id_logela + ",'" + dni_cliente
-								+ "');)";
+
+						consulta = "INSERT INTO erreserbak VALUES (" + id_reserva + ",'" + id_logela + "','"
+								+ dni_cliente + "')";
 						// ejecuto la consulta
 						st.executeUpdate(consulta);
 					}
@@ -768,7 +761,7 @@ public class hotelaMain {
 					conexion.close();
 				} catch (SQLException e) {
 					System.out.println(e.getMessage());
-					System.out.println("Error de conexion hegaldiasss");
+					System.out.println("Error de conexion logela");
 				}
 			}
 

@@ -108,14 +108,6 @@ public class hotela {
         this.izena = sc.next();
         System.out.println("Sartu hiria");
         this.hiria = sc.next();
-        do {
-        System.out.println("Sartu zuzendariaren nan-a");
-        this.nan_zuzendaria = sc.next();
         
-        	if(this.nan_zuzendaria.length()!=9) {
-        		System.out.println("NAN zenbakiak 9 karaktere soili izan ahal ditu");
-        		System.out.println("Saiatu berriro");
-        	}
-        }while(this.nan_zuzendaria.length()!=9);
     }
 }

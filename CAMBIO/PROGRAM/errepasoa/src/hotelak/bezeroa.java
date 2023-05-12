@@ -62,8 +62,15 @@ public class bezeroa {
             return false;
         return true;
     }
+    
+    
 
-    public void irakurri(Scanner sc) {
+    @Override
+	public String toString() {
+		return "bezeroa [dni=" + dni + ", izena=" + izena + "]";
+	}
+
+	public void irakurri(Scanner sc) {
         System.out.println("Sartu dni: ");
         this.dni = sc.next();
         System.out.println("Sartu bezeroaren izena: ");

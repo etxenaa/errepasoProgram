@@ -63,7 +63,7 @@ public class erreserbak {
 	}
 	
 	public void irakurri(Scanner sc) {
-		System.out.println("Zein da zure dni-a?");
+		System.out.println("Zein da bezeroaren dni-a?");
 		this.dni_cliente=sc.next();
 	}
 	
