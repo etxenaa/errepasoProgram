@@ -30,7 +30,7 @@ public class hotelaMain {
 				erabiltzaileencontrado = false, logelaencontrado = false, nanencontrado = false, logelaañadido = false,
 				existe = false, existereserva = false, okupatuta = false, clienteencontrado = false;
 		int kont = 0, motagorde = 0, erreserbaberria, ida = 0, aukera = 0, konta = 3, idhotel, motaBerria, idlogela,
-				idHotel = 0, pos = 0, posi = 0, erreserbaegin = 0;
+				idHotel = 0, pos = 0, posi = 0, erreserbaegin = 0, motaagorde = 0;
 
 		ArrayList<hotela> hList = new ArrayList<hotela>();
 		ArrayList<logelak> lList = new ArrayList<logelak>();
@@ -96,7 +96,7 @@ public class hotelaMain {
 		System.out.println("Sartu zure pasahitza ");
 		pasahitzaLogin = sc.nextLine();
 
-		while (!encontrado && kont < er.size()) {
+		while (kont < er.size() && !encontrado) {
 			if (er.get(kont).getDni().equalsIgnoreCase(dniLogin)) {
 				pos = kont;
 				while (!pasahitzaencontrado && !(konta == 0)) {
@@ -128,7 +128,6 @@ public class hotelaMain {
 				kont++;
 			}
 		}
-
 		if (!encontrado) {
 			System.out.println("Ez da existitzen");
 		} else {
@@ -169,14 +168,25 @@ public class hotelaMain {
 							if (dni_zuzendaria.length() != 9) {
 								System.out.println("NAN zenbakiak 9 karaktere soili izan ahal ditu");
 								System.out.println("Saiatu berriro");
-							}
-							else {
-								encontrado=true;
+							} else {
+								encontrado = true;
 							}
 						} while (dni_zuzendaria.length() != 9);
-						
-						
-						
+
+						if (encontrado) {
+							for (int e = 0; e < er.size(); e++) {
+								if (dni_zuzendaria.equalsIgnoreCase(er.get(e).getDni())) {
+									motaagorde = er.get(e).getTipo();
+								}
+							}
+							if (motaagorde == 1) {
+								hBerria.setNan_zuzendaria(dni_zuzendaria);
+								System.out.println("Hotela ondo sortu da");
+							} else {
+								System.out.println("Ez da zuzendari baten dni-a");
+							}
+						}
+
 						hList.add(hBerria);
 						hotelañadido = true;
 						break;
