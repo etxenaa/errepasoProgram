@@ -122,8 +122,6 @@ public class logelak {
         this.izena = sc.next();
         System.out.println("Sartu zerbitzuak");
         this.zerbitzuak = sc.next();
-        System.out.println("Sartu hotelaren id-a");
-        this.id_hotel = sc.nextInt();
 
     }
 
