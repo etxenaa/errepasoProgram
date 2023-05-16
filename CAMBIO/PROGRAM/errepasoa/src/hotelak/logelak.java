@@ -106,6 +106,14 @@ public class logelak {
 		this.okupatuta = okupatuta;
 	}
 
+	
+	
+	@Override
+	public String toString() {
+		return "logelak [id=" + id + ", izena=" + izena + ", zerbitzuak=" + zerbitzuak + ", id_hotel=" + id_hotel
+				+ ", okupatuta=" + okupatuta + "]";
+	}
+
 	public void pantailaratu() {
         System.out.println("///////////////");
         System.out.println("Logelarern Id: " + this.id);

@@ -94,6 +94,12 @@ public class hotela {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "hotela [id=" + id + ", izena=" + izena + ", hiria=" + hiria + ", nan_zuzendaria=" + nan_zuzendaria
+				+ "]";
+	}
+
 	public void pantailaratuHotelak() {
 		System.out.println("/////////////// ");
 		System.out.println("Id: " + this.id);

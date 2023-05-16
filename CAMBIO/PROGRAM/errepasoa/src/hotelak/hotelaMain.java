@@ -3,6 +3,7 @@ package hotelak;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -387,12 +388,6 @@ public class hotelaMain {
 						System.out.println("1-Logela gehitu ");
 						System.out.println("/////////////// ");
 						logelak lBerria = new logelak();
-						for (int aa = 0; a < hList.size(); a++) {
-							if (dniLogin.equalsIgnoreCase(hList.get(aa).getNan_zuzendaria())) {
-								encontrado = true;
-								idHotela = hList.get(aa).getId();
-							}
-						}
 
 						if (lList.size() == 0) {
 							lBerria.setId(10);
@@ -400,7 +395,13 @@ public class hotelaMain {
 
 							lBerria.setId(lList.get(lList.size() - 1).getId() + 1);
 						}
-						lBerria.setId(idHotela);
+
+						for (int h = 0; h < hList.size(); h++) {
+							if (dniLogin.equalsIgnoreCase(hList.get(h).getNan_zuzendaria())) {
+								lBerria.setId_hotel(hList.get(h).getId());
+							}
+						}
+
 						lBerria.setOkupatuta(0);
 						lBerria.irakurri(sc);
 						lList.add(lBerria);
@@ -593,6 +594,7 @@ public class hotelaMain {
 											reservahecha = true;
 											logelaañadido = true;
 											salir = true;
+											guardarReservaEnArchivo(berria);
 										} else {
 											System.out.println("Bezero baten dni-a sartu behar duzu");
 											salir = true;
@@ -621,18 +623,16 @@ public class hotelaMain {
 						salir = false;
 
 						for (erreserbak kontt : eList) {
-								kontt.pantailaratu();
-							
+							kontt.pantailaratu();
+
 						}
-						
+
 						while (!salir) {
 
 							existe = false;
 							logelaencontrado = false;
 							reservaencontrada = false;
-							
-							
-							
+
 							System.out.println("Zein erreserba ezabatu nahi duzu? Sartu logelaren id-a");
 							erreserbaberria = sc.nextInt();
 							for (int e = 0; e < eList.size(); e++) {
@@ -818,4 +818,18 @@ public class hotelaMain {
 
 	}
 
+	private static void guardarReservaEnArchivo(erreserbak erreserba) {
+		String nombreArchivo = "Reserva " + erreserba.getDni_cliente() + ".txt";
+		try (FileWriter fw = new FileWriter(nombreArchivo)) {
+			fw.write("FAKTURA" + "\n");
+			fw.write("ID Erreserba: " + erreserba.getId_erreserba() + "\n");
+			fw.write("ID Logela: " + erreserba.getId_logela() + "\n");
+			fw.write("Eskerrik asko, erreserba egiteagatik!");
+			// Escribir más datos de reserva según sea necesario
+
+			System.out.println("Erreserba ondo gorde da \"" + nombreArchivo + "\" fitxategian.");
+		} catch (IOException e) {
+			System.out.println("Errorea fitxategia gordean: " + e.getMessage());
+		}
+	}
 }
