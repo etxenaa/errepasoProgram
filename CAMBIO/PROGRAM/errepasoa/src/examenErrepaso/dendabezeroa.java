@@ -84,6 +84,12 @@ public class dendabezeroa {
 		return "dendabezeroa [nan=" + nan + ", izena=" + izena + ", abizena=" + abizena + "]";
 	}
 	
-	
+	public void pantailaratu() {
+		System.out.println("-----");
+		System.out.println("Nan--> "+this.nan);
+		System.out.println("Izena--> "+this.izena);
+		System.out.println("Abizena--> "+this.abizena);
+		System.out.println("-----");
+	}
 	
 }

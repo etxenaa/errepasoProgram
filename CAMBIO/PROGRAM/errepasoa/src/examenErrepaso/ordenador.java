@@ -1,5 +1,7 @@
 package examenErrepaso;
 
+import java.util.Scanner;
+
 public class ordenador {
 	private int id;
 	private String izena;
@@ -109,6 +111,26 @@ public class ordenador {
 				+ ", stock=" + stock + "]";
 	}
 	
+	public void pantailaratu() {
+		System.out.println("-----");
+		System.out.println("Id--> "+this.id);
+		System.out.println("Izena--> "+this.izena);
+		System.out.println("Ezaugarriak--> "+this.ezaugarriak);
+		System.out.println("Prezioa--> "+this.prezioa);
+		System.out.println("Stock--> "+this.stock);
+		System.out.println("-----");
+	}
+	
+	public void irakurri(Scanner sc) {
+		System.out.println("Zein da ordenagailuaren izena??");
+		this.izena=sc.next();
+		System.out.println("Zein da ordenagailuaren ezaugarria??");
+		this.ezaugarriak=sc.next();
+		System.out.println("Zein da ordenagailuaren prezioa??");
+		this.prezioa=sc.nextInt();
+		System.out.println("Zein da ordenagailuaren stock-a??");
+		this.stock=sc.nextInt();
+	}
 	
 	
 }

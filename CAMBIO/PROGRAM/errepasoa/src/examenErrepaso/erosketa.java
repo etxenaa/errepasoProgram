@@ -93,6 +93,13 @@ public class erosketa {
 				+ ", kopurua=" + kopurua + "]";
 	}	
 	
-	
+	public void pantailaratu() {
+		System.out.println("-----");
+		System.out.println("Id erosketa--> "+this.idErosketa);
+		System.out.println("Id ordenagailua--> "+this.idOrdenagailua);
+		System.out.println("Nan--> "+this.nan);
+		System.out.println("Kopurua--> "+this.kopurua);
+		System.out.println("-----");
+	}
 
 }
