@@ -166,17 +166,21 @@ public class dendaMain {
 					encontrado = false;
 					dniencontrado = false;
 					stockencontrado = false;
+					
+					int i=0;
 
-					while (!encontrado) {
+					while (!encontrado && i<oList.size()) {
 						System.out.println("Zein ordenagailu erosi nahi duzu? Sartu id");
 						idO = sc.nextInt();
-						for (int i = 0; i < oList.size(); i++) {
-							if (idO == oList.get(i).getId()) {
-								encontrado = true;
-								stocka = oList.get(i).getStock();
-								i = pos;
-							}
+						if (idO == oList.get(i).getId()) {
+							encontrado = true;
+							stocka = oList.get(i).getStock();
+							i = pos;
 						}
+						else {
+							i++;
+						}
+						
 						
 					}
 					if (!encontrado) {
@@ -208,7 +212,7 @@ public class dendaMain {
 						while (!stockencontrado) {
 							System.out.println("Zenbat ordenagailu nahi dituzu? ");
 							kop = sc.nextInt();
-							if (kop < oList.get(pos).getStock()) {
+							if (kop > oList.get(pos).getStock()) {
 								System.out.println("Ezin da eskari hau egin " + oList.get(pos).getStock() + " ordenagailu ditugu");
 							} else {
 								stockencontrado=true;
@@ -216,7 +220,6 @@ public class dendaMain {
 						}
 						if(stockencontrado) {
 							stock=oList.get(pos).getStock();
-							oList.remove(pos);
 							oList.get(pos).setStock(stock-kop);
 							System.out.println("");
 						}
