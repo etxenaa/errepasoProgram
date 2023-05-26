@@ -87,12 +87,12 @@ public class frutaDendaMain {
 						}
 					}
 					if (encontrado) {
-						kodigo=fList.get(pos).getKod();
+						kodigo = fList.get(pos).getKod();
 						fList.remove(pos);
 						System.out.println("Fruta ezabatu da");
-						for(int i=0; i<fList.size();i++) {
-							if(kodigo<fList.get(i).getKod()) {
-								fList.get(i).setKod(fList.get(i).getKod()-1);
+						for (int i = 0; i < fList.size(); i++) {
+							if (kodigo < fList.get(i).getKod()) {
+								fList.get(i).setKod(fList.get(i).getKod() - 1);
 							}
 						}
 					}

@@ -105,7 +105,6 @@ public class dendaMain {
 				System.out.println("Ongi etorri " + izena);
 
 				System.out.println("Zer egin nahi duzu?????");
-
 				System.out.println("0- Irten");
 				System.out.println("1- Erabiltzaile bat gehitu");
 				System.out.println("2- Bezeroak ikusi");
@@ -334,7 +333,7 @@ public class dendaMain {
 					cantidad = eList.get(i).getKopurua();
 // genero la consulta a ejecutar
 
-					consulta = "INSERT INTO compra VALUES (" + idCompra + "," + idOrdenador + ",'" +dni  + "',"
+					consulta = "INSERT INTO compra VALUES (" + idCompra + "," + idOrdenador + ",'" + dni + "',"
 							+ cantidad + ")";
 // ejecuto la consulta
 					st.executeUpdate(consulta);

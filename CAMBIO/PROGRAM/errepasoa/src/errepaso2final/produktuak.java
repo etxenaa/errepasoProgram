@@ -8,17 +8,16 @@ public abstract class produktuak {
 	protected int stock;
 	protected String kolorea;
 	protected int prezioa;
-	
+
 	public produktuak() {
-		this.kod=0;
-		this.izena="";
-		this.stock=0;
-		this.kolorea="";
-		this.prezioa=0;
+		this.kod = 0;
+		this.izena = "";
+		this.stock = 0;
+		this.kolorea = "";
+		this.prezioa = 0;
 	}
 
 	public produktuak(int kod, String izena, int stock, String kolorea, int prezioa) {
-		super();
 		this.kod = kod;
 		this.izena = izena;
 		this.stock = stock;
@@ -111,15 +110,15 @@ public abstract class produktuak {
 		return "produktuak [kod=" + kod + ", izena=" + izena + ", stock=" + stock + ", kolorea=" + kolorea
 				+ ", prezioa=" + prezioa + "]";
 	}
-	
+
 	public abstract void irakurri(Scanner sc);
-	
+
 	public void pantailaratu() {
 		System.out.println("-------------");
-		System.out.println("Kod-->"+this.kod);
-		System.out.println("Izena-->"+this.izena);
-		System.out.println("Stocka-->"+this.stock);
-		System.out.println("Kolorea-->"+this.kolorea);
-		System.out.println("Prezioa-->"+this.prezioa);
+		System.out.println("Kod-->" + this.kod);
+		System.out.println("Izena-->" + this.izena);
+		System.out.println("Stocka-->" + this.stock);
+		System.out.println("Kolorea-->" + this.kolorea);
+		System.out.println("Prezioa-->" + this.prezioa);
 	}
 }

@@ -5,11 +5,18 @@ import java.util.Scanner;
 
 public class katalogoa {
 
-	Scanner sc = new Scanner(System.in);
 	ArrayList<produktuak> lista;
 
-	public katalogoa(ArrayList<produktuak> array) {
-		this.lista = array;
+	public katalogoa() {
+		this.lista = new ArrayList<produktuak>();
+	}
+
+	public ArrayList<produktuak> getLista() {
+		return lista;
+	}
+
+	public void setLista(ArrayList<produktuak> lista) {
+		this.lista = lista;
 	}
 
 	public void fillData() {
@@ -38,14 +45,23 @@ public class katalogoa {
 	}
 
 	public int produktuPosizioa(String izena) {
-		int pos = lista.indexOf(izena);
+		int pos = 0, i = 0;
+		boolean encontrado = false;
 		
-		if(pos>0) {
-			return pos;
+		while (!encontrado && i < lista.size()) {
+			if (izena.equalsIgnoreCase(lista.get(i).getIzena())) {
+				pos = i;
+				encontrado = true;
+			}
+			i++;
 		}
-		else {
+
+		if (encontrado) {
+			return pos;
+		} else {
 			return -1;
 		}
+
 	}
 
 	public void stockpositiboa() {
