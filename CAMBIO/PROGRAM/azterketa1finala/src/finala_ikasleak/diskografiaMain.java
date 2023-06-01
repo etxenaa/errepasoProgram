@@ -245,6 +245,7 @@ public class diskografiaMain {
 				break;
 
 			case 6:
+				posi = 0;
 				encontrado = false;
 				for (abestia kont : abestiList) {
 					System.out.println(kont);
@@ -277,13 +278,14 @@ public class diskografiaMain {
 					for (int x = 0; x < abList.size(); x++) {
 
 						if (abeslariak.contains(abList.get(x).getNan())) {
-							System.out.println(abList.get(x).getIzena());
-							System.out.println("---------------");
+							abeslariak2.add(abList.get(x).getIzena());
 						}
 					}
 
-					
-					
+					System.out.println(abeslariak2);
+					System.out.println("---------------");
+					abeslariak2.clear();
+					abeslariak.clear();
 				}
 				break;
 
