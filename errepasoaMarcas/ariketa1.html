@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 130px;
+        }
+
+        .container{
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container-2{
+            display: flex;
+            margin-top: 50px;
+            justify-content: end;
+            flex-flow: row-reverse wrap;
+        }
+
+        .caja-1{
+            background-color: red;
+            width:100px;
+            height: 100px;
+        }
+        
+        .caja-2{
+            background-color: green;
+            width:100px;
+            height: 100px;
+        }
+        
+        .caja-3{
+            background-color: blue;
+            width:100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1px black">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td>Data1</td>
+            <td>Data 2</td>
+            <td rowspan="2" >Data 3</td>
+        </tr>
+        <tr>
+            <td colspan="2">Data 4 and Data 5</td>
+        </tr>
+        <tr>
+            <td>Data 6</td>
+            <td>Data 7</td>
+            <td>Data 8</td>
+        </tr>
+    </table>
+    <div class="container">
+        <div class="caja-1">1</div>
+        <div class="caja-2">2</div>
+        <div class="caja-3">3</div>
+    </div>
+    <div class="container-2">
+        <div class="caja-1">1</div>
+        <div class="caja-2">2</div>
+        <div class="caja-3">3</div>
+        <div class="caja-1">4</div>
+        <div class="caja-2"></div>
+        <div class="caja-3"></div>
+        <div class="caja-1"></div>
+        <div class="caja-2"></div>
+        <div class="caja-3"></div>
+        <div class="caja-1"></div>
+        <div class="caja-2"></div>
+        <div class="caja-3"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/kontaktua.css">
+</head>
+
+<body>
+    <script src="js/navbar.js"></script>
+    
+    <div class="position-relative bg-dark">
+        <img src="img/jokalariak.jpg" alt="Imagen" class="argazkia w-100">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <h1 class="text-center text-white display-1"><em><strong>KONTAKTUA</strong></em></h1>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 bg-secondary p-5">
+        <form>
+            <div class="row was-validated">
+                <div class="mb-3 mt-3">
+                    <label for="uname" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="uname" placeholder="Sartu helbde elektronikoa" name="email"
+                        required>
+                    <div class="valid-feedback">Ondo.</div>
+                    <div class="invalid-feedback">Sartu email-a.</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="uname" class="form-label">Pasahitza:</label>
+                    <input type="password" class="form-control" id="uname" placeholder="Enter username" name="uname"
+                        required>
+                    <div class="valid-feedback">Ondo.</div>
+                    <div class="invalid-feedback">Sartu pasahitza.</div>
+                </div>
+            </div>
+            <div>Zure herrialdea: </div>
+            <select class="form-select ">
+                <option>Espainia</option>
+                <option>Frantzia</option>
+                <option>Portugal</option>
+                <option>Alemania</option>
+                <option>Suitza</option>
+                <option>Serbia</option>
+                <option>Ingalaterra</option>
+                <option> Estatu Batuak</option>
+                <option>Mexico</option>
+                <option>Argentina</option>
+                <option>Kolombia</option>
+            </select>
+            <div class="row p-5">
+                <div class="col-lg-5 col-md-5 col-sm-4 col-7">
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something"
+                            checked>
+                        <label class="form-check-label">Bazkide</label>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-4 col-7 mt-5 mt-sm-0 mt-md-0 mt-lg-0">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1"
+                            checked>Bazkide Vip<label class="form-check-label" for="radio1"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Bazkide
+                        normala<label class="form-check-label" for="radio2"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Ez naiz
+                        bazkide<label class="form-check-label"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label for="comment">Comments:</label>
+                <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-5"> Bidali </button>
+        </form>
+
+    </div>
+    <script src="js/footer.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
